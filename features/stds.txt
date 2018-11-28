@@ -1,0 +1,23 @@
+###X
+
+magnitude           17.922281
+wifi_avg_rssi        4.012481
+wifi_max_rssi        9.499131
+wifi_min_rssi        3.655876
+wifi_rssi_dev        2.298151
+wifi_total_rssi    766.736693
+x_mag               20.549991
+xy_mag              16.919943
+xz_mag              16.214845
+y_mag               35.182298
+yz_mag              18.338149
+z_mag               11.793235
+
+
+##Y
+0    17.250086
+1     4.666357
+2    25.634904
+3    17.250086
+4     4.667586
+5    25.635335
