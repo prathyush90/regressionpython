@@ -129,7 +129,7 @@ def buildModel(X):
 
 
 
-epochs = 10000
+epochs = 50000
 batch_size = 100
 learning_rate = 0.001
 
