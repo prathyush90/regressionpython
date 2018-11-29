@@ -111,16 +111,16 @@ def buildModel(X):
     # keep_prob_2 = tf.placeholder(tf.float32)
     drop_2 = tf.nn.dropout(relu2, 0.8)
 
-    layer3 = tf.contrib.layers.fully_connected(drop_2,6)
+    layer3 = tf.contrib.layers.fully_connected(drop_2,500)
 
-    output  = tf.nn.leaky_relu(layer3)
-    # drop_3  = tf.nn.dropout(relu3, 0.8)
-    #
-    # layer4 = tf.contrib.layers.fully_connected(drop_3,6)
-    #
-    #
-    #
-    # output = tf.nn.leaky_relu(layer4,name='output')
+    relu3  = tf.nn.leaky_relu(layer3)
+    drop_3  = tf.nn.dropout(relu3, 0.8)
+
+    layer4 = tf.contrib.layers.fully_connected(drop_3,6)
+
+
+
+    output = tf.nn.leaky_relu(layer4,name='output')
 
 
     #loss = tf.reduce_mean(tf.squared_difference(output, Y_in))
@@ -130,8 +130,8 @@ def buildModel(X):
 
 
 epochs = 50000
-batch_size = 1000
-learning_rate = 0.09
+batch_size = 100
+learning_rate = 0.03
 
 
 
