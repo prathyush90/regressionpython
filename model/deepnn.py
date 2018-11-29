@@ -131,12 +131,13 @@ def buildModel(X):
 
 epochs = 50000
 batch_size = 100
-learning_rate = 0.001
+learning_rate = 0.3
 
 
 
 output    = buildModel(X_in)
-loss      = tf.losses.mean_squared_error(output,Y_in)
+loss = tf.reduce_mean(tf.sqrt(tf.reduce_sum(tf.square(tf.subtract(output, Y_in)),
+                         name="loss",axis=1)),axis=0)
 optimizer = tf.train.RMSPropOptimizer(learning_rate=learning_rate).minimize(loss)
 
 init_op = tf.global_variables_initializer()
