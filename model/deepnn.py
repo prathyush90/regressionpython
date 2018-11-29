@@ -111,16 +111,16 @@ def buildModel(X):
     # keep_prob_2 = tf.placeholder(tf.float32)
     drop_2 = tf.nn.dropout(relu2, 0.8)
 
-    layer3 = tf.contrib.layers.fully_connected(drop_2,500)
+    layer3 = tf.contrib.layers.fully_connected(drop_2,6)
 
-    relu3  = tf.nn.leaky_relu(layer3)
-    drop_3  = tf.nn.dropout(relu3, 0.8)
-
-    layer4 = tf.contrib.layers.fully_connected(drop_3,6)
-
-
-
-    output = tf.nn.leaky_relu(layer4,name='output')
+    output  = tf.nn.leaky_relu(layer3)
+    # drop_3  = tf.nn.dropout(relu3, 0.8)
+    #
+    # layer4 = tf.contrib.layers.fully_connected(drop_3,6)
+    #
+    #
+    #
+    # output = tf.nn.leaky_relu(layer4,name='output')
 
 
     #loss = tf.reduce_mean(tf.squared_difference(output, Y_in))
@@ -130,15 +130,15 @@ def buildModel(X):
 
 
 epochs = 50000
-batch_size = 100
-learning_rate = 0.1
+batch_size = 1000
+learning_rate = 0.09
 
 
 
 output    = buildModel(X_in)
 loss = tf.reduce_mean(tf.sqrt(tf.reduce_sum(tf.square(tf.subtract(output, Y_in)),
-                         name="loss",axis=1)),axis=0)
-optimizer = tf.train.RMSPropOptimizer(learning_rate=learning_rate).minimize(loss)
+                         axis=1)),axis=0,name="loss",)
+optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(loss)
 
 init_op = tf.global_variables_initializer()
 
